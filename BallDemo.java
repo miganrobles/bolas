@@ -33,7 +33,7 @@ public class BallDemo
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
         ArrayList<BouncingBall> bolas = new ArrayList<>();
-                // crate and show the balls
+        // crate and show the balls
         for (int i = 0; i < numeroBolas; i++) {
             float r = aleatorio.nextFloat();
             float g = aleatorio.nextFloat();
@@ -46,8 +46,6 @@ public class BallDemo
             bolas.get(i).draw();
         }
 
-        // make them bounce
-        // Cuando alguna bola llegue a la posicion que se sale del suelo finalizar la animacion
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
