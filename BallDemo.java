@@ -33,20 +33,21 @@ public class BallDemo
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
         ArrayList<BouncingBall> bolas = new ArrayList<>();
-        Color[] colores = new Color[3];
-        colores[0] = Color.BLUE;
-        colores[1] = Color.YELLOW;
-        colores[2] = Color.RED;
-        // crate and show the balls
+                // crate and show the balls
         for (int i = 0; i < numeroBolas; i++) {
-            int numColor = aleatorio.nextInt(colores.length);
+            float r = aleatorio.nextFloat();
+            float g = aleatorio.nextFloat();
+            float b = aleatorio.nextFloat();
+            Color color = new Color(r, g, b);// Se crea el color de forma aleatoria
+
             int posicion =  aleatorio.nextInt(150);
             int radio = aleatorio.nextInt(30);
-            bolas.add(new BouncingBall(posicion, posicion, radio, colores[numColor], ground, myCanvas));
+            bolas.add(new BouncingBall(posicion, posicion, radio, color, ground, myCanvas));
             bolas.get(i).draw();
         }
 
         // make them bounce
+        // Cuando alguna bola llegue a la posicion que se sale del suelo finalizar la animación
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
