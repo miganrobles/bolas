@@ -47,7 +47,7 @@ public class BallDemo
         }
 
         // make them bounce
-        // Cuando alguna bola llegue a la posicion que se sale del suelo finalizar la animación
+        // Cuando alguna bola llegue a la posicion que se sale del suelo finalizar la animacion
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
