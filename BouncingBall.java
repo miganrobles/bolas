@@ -29,7 +29,8 @@ public class BouncingBall
     private final int groundPosition;      // y position of ground
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
-
+    private boolean derecha;    // Direccion por defecto derecha
+    private boolean abajo;      // Sentido por defecto
     /**
      * Constructor for objects of class BouncingBall
      *
@@ -41,7 +42,7 @@ public class BouncingBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BouncingBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, Canvas drawingCanvas)
+                        int groundPos,boolean derecha, boolean abajo, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -49,6 +50,8 @@ public class BouncingBall
         diameter = ballDiameter;
         groundPosition = groundPos;
         canvas = drawingCanvas;
+        this.derecha = derecha;
+        this.abajo = abajo;
     }
 
     /**
@@ -105,5 +108,13 @@ public class BouncingBall
     public int getYPosition()
     {
         return yPosition;
+    }
+    
+    /**
+     * Permite cambiar la direccion de la bola (izquierda o derecha)
+     */
+    public void changeDire()
+    {
+        derecha = !derecha;
     }
 }
