@@ -60,5 +60,22 @@ public class BallDemo
         }
     }
     
-    
+    /**
+     * Cuando se invoque debe dibujar un rectángulo sin relleno en la pantalla y 
+     * tantas bolas como se indiquen como parámetro en la invocación del método dentro de dicho rectángulo.
+     */
+    public void boxBounce(int numeroBolas)
+    {
+        int ground = 400;
+        int techo = 0;
+        int lateralDerecho = 10;
+        int lateralIzquierdo = 550;
+        myCanvas.drawLine(lateralIzquierdo, ground, lateralDerecho, ground);
+        myCanvas.drawLine(lateralIzquierdo, techo, lateralDerecho, techo);
+        myCanvas.drawLine(lateralIzquierdo, ground, lateralIzquierdo, techo);
+        myCanvas.drawLine(lateralDerecho, ground, lateralDerecho, techo);
+        myCanvas.setVisible(true);
+        Random aleatorio = new Random();
+     
+    }
 }
