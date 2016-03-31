@@ -90,13 +90,13 @@ public class BallDemo
             boolean direccion = aleatorio.nextBoolean();
             int posicion =  aleatorio.nextInt(150);
             int radio = aleatorio.nextInt(30);
-            bolas.add(new BoxBall(posicion, posicion, radio, color, ground,lateralDerecho, lateralIzquierdo, techo,sentido, direccion, myCanvas));
+            bolas.add(new BoxBall(posicion, posicion, radio, color, ground,lateralDerecho, lateralIzquierdo, techo, sentido, direccion, myCanvas));
             bolas.get(i).draw();
         }
         
         boolean finished =  false;
         while(!finished) {
-            myCanvas.wait(50);           // small delay
+            myCanvas.wait(10);           // small delay
             for (BoxBall bola : bolas) {
                 bola.move();
             }

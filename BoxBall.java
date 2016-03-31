@@ -43,7 +43,7 @@ public class BoxBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, int dcha, int izq, int techo,boolean derecha, boolean abajo,  Canvas drawingCanvas)
+    int groundPos, int dcha, int izq, int techo, boolean derecha, boolean abajo,  Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -84,14 +84,34 @@ public class BoxBall
         erase();
             
         // compute new position
-        yPosition += ySpeed;
-        xPosition +=ySpeed;
-
+        int desplaza = ySpeed;
+        if (!derecha) {
+            desplaza *= -1;
+        }
+        xPosition += desplaza;
+        desplaza = 1;
+        if (!abajo) {
+            desplaza *= -1;
+        }
+        yPosition += desplaza;
         // check if it has hit the ground
-//         if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
-//             yPosition = (int)(groundPosition - diameter);
-//             ySpeed = -ySpeed + ballDegradation; 
-//         }
+        if(yPosition == (groundPos - diameter)) {
+            yPosition = (int)(groundPos - diameter); 
+            changeSen();
+        }
+        else if(yPosition == (techo)) {
+            yPosition = techo; 
+            changeSen();
+        }
+        if(xPosition == (izq - diameter)) {
+            xPosition = (int)(izq - diameter); 
+            changeDire();
+        }
+        else if(xPosition == dcha) {
+            xPosition = dcha; 
+            changeDire();
+        }
+
 
         // draw again at new position
         draw();
@@ -112,7 +132,7 @@ public class BoxBall
     {
         return yPosition;
     }
-    
+
     /**
      * Permite cambiar la direccion de la bola (izquierda o derecha)
      */
@@ -120,7 +140,7 @@ public class BoxBall
     {
         derecha = !derecha;
     }
-    
+
     /**
      * Permite cambiar el sentido de la bola (arriba o abajo)
      */
