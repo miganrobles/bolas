@@ -42,6 +42,7 @@ public class BallDemo
 
             int posicion =  aleatorio.nextInt(150);
             int radio = aleatorio.nextInt(30);
+            
             bolas.add(new BouncingBall(posicion, posicion, radio, color, ground, myCanvas));
             bolas.get(i).draw();
         }
@@ -85,10 +86,11 @@ public class BallDemo
             float g = aleatorio.nextFloat();
             float b = aleatorio.nextFloat();
             Color color = new Color(r, g, b);// Se crea el color de forma aleatoria
-
+            boolean sentido = aleatorio.nextBoolean();
+            boolean direccion = aleatorio.nextBoolean();
             int posicion =  aleatorio.nextInt(150);
             int radio = aleatorio.nextInt(30);
-            bolas.add(new BoxBall(posicion, posicion, radio, color, ground,lateralDerecho, lateralIzquierdo, techo, myCanvas));
+            bolas.add(new BoxBall(posicion, posicion, radio, color, ground,lateralDerecho, lateralIzquierdo, techo,sentido, direccion, myCanvas));
             bolas.get(i).draw();
         }
         

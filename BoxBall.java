@@ -30,7 +30,8 @@ public class BoxBall
     private final int dcha;
     private final int izq;
     private final int techo;
-    
+    private boolean derecha;    // Direccion por defecto derecha
+    private boolean abajo;      // Sentido por defecto
     /**
      * Constructor for objects of class BouncingBall
      *
@@ -42,7 +43,7 @@ public class BoxBall
      * @param drawingCanvas  the canvas to draw this ball on
      */
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
-                        int groundPos, int dcha, int izq, int techo, Canvas drawingCanvas)
+                        int groundPos, int dcha, int izq, int techo,boolean derecha, boolean abajo,  Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
@@ -53,6 +54,8 @@ public class BoxBall
         this.dcha = dcha;
         this.izq = izq;
         this.techo = techo;
+        this.derecha = derecha;
+        this.abajo = abajo;
     }
 
     /**
@@ -108,5 +111,21 @@ public class BoxBall
     public int getYPosition()
     {
         return yPosition;
+    }
+    
+    /**
+     * Permite cambiar la direccion de la bola (izquierda o derecha)
+     */
+    public void changeDire()
+    {
+        derecha = !derecha;
+    }
+    
+    /**
+     * Permite cambiar el sentido de la bola (arriba o abajo)
+     */
+    public void changeSen()
+    {
+        abajo = !abajo;
     }
 }
